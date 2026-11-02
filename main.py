@@ -27,7 +27,7 @@ VND — донг
 PHP — песо (филиппинский)
 KGS — сом
 """
-
+    
 # сам конвертер
 def convert(sum, reg1, reg2):
     value = c.convert(sum, reg1, reg2)
@@ -36,11 +36,25 @@ def convert(sum, reg1, reg2):
 
 print("Привет и добро пожаловать в конвертер валют!!!\n")
 
-question = input("Нужна помощь в валютах? (Д/Н): ")
-if question.upper() == "Д" or question.upper() == "Y":
-    print(spravka)
-else:
-    sum = int(input("Введите сумму для конвертации: "))
-    reg1 = input("Введите вашу валюту (RUB/TJS/KZT и тд.): ")
-    reg2 = input("Введите валюту для конвертации (RUB/TJS/KZT и тд.): ")
-    print(f"{convert(sum, reg1, reg2)}")
+while True:
+    try:
+        question = input("Нужна помощь в валютах? (Д/Н): ")
+        if question.upper() == "Д" or question.upper() == "Y":
+            print(spravka)
+        else:
+            try:
+                summa = int(input("Введите сумму для конвертации: "))
+            except:
+                print("Сумма должна быть числом!\n")
+                
+            reg1 = input("\nВведите вашу валюту (RUB/TJS/KZT и тд.): ")
+            reg2 = input("\nВведите валюту для конвертации (RUB/TJS/KZT и тд.): ")
+
+            try:
+                res = convert(summa, reg1, reg2)
+                print("\n", res, "\n")
+            except:
+                print("\nОшибка в типах данных которые вы ввели!\n")
+    except:
+        print("\n\nПока!")
+        break
