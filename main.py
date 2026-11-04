@@ -53,8 +53,8 @@ while True:
             try:
                 res = convert(summa, reg1, reg2)
                 print("\n", res, "\n")
-            except:
-                print("\nОшибка в типах данных которые вы ввели!\n")
+            except Exception as e:
+                print(f"\nОшибка: {e}\n")
     except:
         print("\n\nПока!")
         break
